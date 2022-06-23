@@ -1,2 +1,2 @@
 # homepage
->>>My GitHub repositories homepage.
+>My GitHub repositories homepage.
