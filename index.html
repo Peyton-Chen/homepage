@@ -1,312 +1,1323 @@
-<head><meta name="google-site-verification" content="UA4Hsqr1Bgu48sT_Ica1rWAI-QOi4Utpiu05s1sKKY4" /></head>
-<link rel="stylesheet" href="style.css" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="UA4Hsqr1Bgu48sT_Ica1rWAI-QOi4Utpiu05s1sKKY4" />
 <link rel="shortcut icon" href="resource/fdu.png">
-<title>PengtaoChen's HomePage @ Fudan University</title>
+<title>Pengtao Chen's HomePage @ Fudan University</title>
 
-<body>
-<div id="layout-content" style="margin-top:25px">
-
-<table>
-    <tbody>
-        <tr>
-            <td width="700">
-                <div id="toptitle">
-                    <h1>Pengtao Chen &nbsp; <img src="resource/pengtaochen_chinese_name.png" height="70px" style="margin-bottom:-23px" alt=''></h1>
-                </div>
-                <p>
-                    <b><FONT size=4>Ph.D. Student</FONT></b>
-                    <br><br>
-                    Embedded Deep Learning and Visual Analysis Lab<br>
-                    School of Information Science and Technology<br>
-                    Fudan University (FDU) <br>
-                    <br>
-                    <b>Address:</b> 2005 Songhu Rd, Yangpu, Shanghai, China, 200438
-                    <br><br>
-                    <b>E-mail:</b> Pengt.Chen@gmail.com
-                </p>
-            </td>
-            <td>
-                <img src="resource/pengtaochen_photo.jpg" border="0" width="350">
-            </td>
-        </tr>
-    </tbody>
-</table>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-.pubs {
-    width: 950px;
-    /* width: 1100px; */
-    padding: 20px 0px;
+  /* ─── CSS Variables ─── */
+  :root {
+    --bg:          #f7f5f0;
+    --surface:     #ffffff;
+    --border:      #e2ddd6;
+    --text:        #1a1714;
+    --muted:       #7a7168;
+    --accent:      #1a3a7c;
+    --accent-light:#e8edf7;
+    --link:        #1a3a7c;
+    --link-hover:  #c0392b;
+    --paper-link:  #c0392b;
+    --tag-a:       #b8000a;
+    --tag-a-bg:    #fff0f0;
+    --tag-b:       #006e3a;
+    --tag-b-bg:    #f0fff6;
+    --nav-h:       56px;
+    --radius:      6px;
+    --shadow:      0 4px 20px rgba(0,0,0,0.08);
+    --shadow-hover:0 12px 40px rgba(0,0,0,0.16);
+    --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(247, 245, 240, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
     display: flex;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    border: none;
-    /* border-top-color: solid; */
-}
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    z-index: 1000;
+    transition: box-shadow var(--transition);
+  }
+  #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  .nav-brand {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color var(--transition);
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width var(--transition);
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
 
-.pubtext {
-    /* color: #3E9B57; */
-    color: #13A913;
-    font-weight: bolder;
+  #page-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: calc(var(--nav-h) + 40px) 24px 60px;
+  }
+
+  #profile {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 42px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-photo {
+    flex-shrink: 0;
+    width: 204px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .profile-photo img.photo {
+    width: 204px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    display: block;
+    box-shadow: var(--shadow);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .profile-photo img.photo:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  .profile-text h1 .chinese-name {
+    display: inline-block;
+    vertical-align: middle;
+    height: 55px;
+    width: auto;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    opacity: 0.75;
+    transition: opacity var(--transition);
+  }
+  .profile-text h1 .chinese-name:hover { opacity: 1; }
+
+  .profile-text {
+    flex: 1;
+    min-width: 0;
+    padding-top: 4px;
+  }
+  .profile-text h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .profile-subtitle {
     font-size: 13px;
-}
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 18px;
+  }
+  .profile-text p { font-size: 14.5px; color: var(--muted); line-height: 1.65; margin-bottom: 5px; }
+  .profile-text strong { color: var(--text); }
 
-.title-normal {
-    color: #0E40CD;
-    font-size: 15px;
-    font-weight:bold;
-}
-
-.title-small {
-    color: #0E40CD;
-    font-size: 14px;
-    font-weight:bold;
-}
-
-.title-tiny {
-    color: #0E40CD;
+  #stats-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-size: 13px;
-    font-weight:bold;
-}
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all var(--transition);
+    cursor: default;
+    user-select: none;
+  }
+  .stat-badge.scholar {
+    background: #e8f0fe;
+    color: #1a3a7c;
+    border-color: rgba(26, 58, 124, 0.2);
+  }
+  .stat-badge.scholar:hover {
+    background: #d2e3fc;
+    border-color: rgba(26, 58, 124, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(26,58,124,0.12);
+  }
+  .stat-badge.github {
+    background: #f0f0f0;
+    color: #24292e;
+    border-color: rgba(36, 41, 46, 0.2);
+  }
+  .stat-badge.github:hover {
+    background: #e6e6e6;
+    border-color: rgba(36, 41, 46, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  .stat-badge svg { flex-shrink: 0; width: 15px; height: 15px; }
+  .stat-badge .stat-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    min-width: 20px;
+  }
 
-.title-tinyy {
-    color: #0E40CD;
-    font-size: 12px;
-    font-weight:bold;
-}
+  @keyframes shimmer {
+    0%   { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+  }
+  .stat-val.loading {
+    display: inline-block;
+    width: 36px; height: 13px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #ccc 25%, #e8e8e8 50%, #ccc 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s infinite linear;
+    vertical-align: middle;
+  }
+  .stat-badge.scholar .stat-val.loading {
+    background: linear-gradient(90deg, #8aabdf 25%, #b5ccf1 50%, #8aabdf 75%);
+    background-size: 400px 100%;
+  }
 
-.author-pub-normal{
-    font-size: 15px;
-}
+  .stat-refresh {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    color: var(--muted);
+    transition: all var(--transition);
+    margin-left: 2px;
+  }
+  .stat-refresh:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(20deg);
+  }
+  .stat-refresh svg { width: 11px; height: 11px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .stat-refresh.spinning svg { animation: spin 0.7s linear infinite; }
 
-.author-pub-small{
-    font-size: 14px;
-}
-
-.author-pub-tiny{
-    font-size: 13px;
-}
-
-.papertext {
-    color: #D93053;
-    font-weight: bolder;
-    font-size: 14px;
-}
-
-.abstext {
-    color: #666666;
-    font-size: 14px;
-}
-
-.pub-img-box {
-    /* width: 200px; */
-    width: 200px;
+  section { margin-bottom: 42px; }
+  section h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  section h2 .social-links { display: flex; gap: 8px; align-items: center; }
+  section h2 .social-links a img { vertical-align: middle; }
+  section h2 .social-links a { transition: opacity var(--transition); }
+  section h2 .social-links a:hover { opacity: 0.7; }
+  section h3.year-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--muted);
     text-align: center;
-    margin-right: 20px;
+    margin: 28px 0 14px;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  section h3.year-label::before,
+  section h3.year-label::after {
+    content: '';
+    position: absolute;
+    top: 50%; width: 38%;
+    height: 1px;
+    background: var(--border);
+  }
+  section h3.year-label::before { left: 0; }
+  section h3.year-label::after { right: 0; }
+
+  #bio-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+    text-align: justify;
+  }
+  #bio-text a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
+  #bio-text a:hover { border-color: var(--link-hover); color: var(--link-hover); }
+
+  .pub-card {
     display: flex;
-}
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .pub-card:last-child { border-bottom: none; }
 
-.pub-img {
-    margin: auto;
-}
+  .pub-img-wrap {
+    flex-shrink: 0;
+    width: 190px;
+    position: relative;
+  }
+  .pub-img-wrap img {
+    width: 190px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    display: block;
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: default;
+  }
+  .pub-img-wrap:hover img {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: var(--shadow-hover);
+  }
 
-.pub-text-box {
-    /* width: 730px; */
-    /* width: 800px; */
-    width: 660px;
+  .ccf-tag {
+    position: absolute;
+    top: 7px; left: 7px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .ccf-a  { background: var(--tag-a-bg); color: var(--tag-a); border: 1px solid rgba(184,0,10,0.25); }
+  .ccf-b  { background: var(--tag-b-bg); color: var(--tag-b); border: 1px solid rgba(0,110,58,0.25); }
+  .ccf-c  { background: #f0fafa; color: #006e6e; border: 1px solid rgba(0,110,110,0.25); }
+  .cas-1  { background: #eef2ff; color: #1e3a8a; border: 1px solid rgba(30,58,138,0.25); }
+  .cas-2  { background: #f3f0ff; color: #4c1d95; border: 1px solid rgba(76,29,149,0.25); }
+  .ei     { background: #fffbeb; color: #92400e; border: 1px solid rgba(146,64,14,0.25); }
+  .book   { background: #f1f5f9; color: #334155; border: 1px solid rgba(51,65,85,0.25); }
+
+  .gh-star-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: #f6f8fa;
+    color: #57606a;
+    border: 1px solid #d0d7de;
+    vertical-align: middle;
+    transition: all var(--transition);
+    text-decoration: none;
+  }
+  .gh-star-chip:hover { background: #fff3cd; border-color: #e6a817; color: #9a6700; }
+  .gh-star-chip svg { width: 11px; height: 11px; flex-shrink: 0; }
+  .gh-star-chip .chip-val { min-width: 10px; }
+
+  .cite-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: #f0f4ff;
+    color: #4a5a8a;
+    border: 1px solid #c0cef0;
+    vertical-align: middle;
+    transition: all var(--transition);
+    text-decoration: none;
+  }
+  .cite-chip:hover { background: #e0e8ff; border-color: #7a9aed; color: #2a3a6a; }
+  .cite-chip svg { width: 11px; height: 11px; flex-shrink: 0; }
+  .cite-chip .chip-val { min-width: 10px; }
+  .cite-chip .chip-val.loading {
+    display: inline-block;
+    width: 24px; height: 10px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #c0cef0 25%, #e0e8ff 50%, #c0cef0 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s infinite linear;
+    vertical-align: middle;
+  }
+  .gh-star-chip .chip-val.loading {
+    display: inline-block;
+    width: 24px; height: 10px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #ccc 25%, #e8e8e8 50%, #ccc 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s infinite linear;
+    vertical-align: middle;
+  }
+
+  .pub-info { flex: 1; min-width: 0; }
+  .pub-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.45;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .pub-authors { font-size: 13.5px; color: var(--text); line-height: 1.6; margin-bottom: 4px; }
+  .pub-venue { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 10px; }
+  .pub-venue strong { color: var(--text); font-style: italic; font-weight: 700; }
+  .pub-links { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .pub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--paper-link);
+    border: 1px solid rgba(192,57,43,0.3);
+    background: #fff9f8;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  }
+  .pub-link:hover { background: #fff0ee; border-color: var(--paper-link); transform: translateY(-1px); }
+  .pub-link img { width: 14px; height: 14px; object-fit: contain; }
+  .note-equal { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
+
+  .entry-list { display: flex; flex-direction: column; gap: 18px; }
+  .entry-card {
     display: flex;
-    /* overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all; */
-}
+    align-items: center;
+    gap: 20px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .entry-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .entry-card img { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; margin-top: 2px; }
+  .entry-text p { font-size: 14.5px; line-height: 1.7; }
+  .entry-text strong { color: var(--text); }
+  .entry-text em { color: var(--muted); }
 
-.pub-text {
-    margin: auto 0;
-}
+  .awards-list { list-style: none; padding: 0; }
+  .awards-list li {
+    padding: 9px 0 9px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    position: relative;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .awards-list li:last-child { border-bottom: none; }
+  .awards-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 12px; }
+  .awards-list li strong { color: var(--tag-a); }
+
+  .service-row { padding: 8px 0; font-size: 14px; line-height: 1.7; border-bottom: 1px solid var(--border); }
+  .service-row:last-child { border-bottom: none; }
+  .service-row strong { color: var(--text); }
+
+  .collab-grid {
+    line-height: 2;
+    text-align: justify;
+  }
+  .collab-item { font-size: 14px; }
+  .collab-item:not(:last-child)::after { content: ',\00a0'; color: var(--muted); }
+  .collab-link {
+    color: rgb(111, 140, 255);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity var(--transition);
+  }
+  .collab-link:hover { opacity: 0.7; text-decoration: underline; }
+  .collab-aff { color: var(--muted); font-size: 13px; }
+
+  footer { text-align: right; font-size: 12.5px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+  a { color: var(--link); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-links a.active::after { width: 100%; }
 </style>
+</head>
+<body>
 
-
-<h2>Biography<small>
- [<a href="https://github.com/Peyton-Chen"><img src="resource/github.png" width="80px" style="margin-bottom:-5px" alt=''></a>]   <!--  [<a href="resource/cv.pdf"><img src="resource/cv.jpg" width="160px" style="margin-bottom:-5px" alt=''></a>] -->
-</small></h2>
-
-<p>
-  I received the B.S. degree from the School of Information Engineering, <a href="https://www.zjut.edu.cn/">Zhejiang University of Technology</a>, Hangzhou, China, in 2022, advised by Prof. <a href="http://xuanqi-net.com/">Qi Xuan</a>. I am currently a fitst-year Ph.D. student at the School of Information Science and Technology, <a href="https://www.fudan.edu.cn/">Fudan University</a>, Shanghai, China, supervised by Prof. <a href="https://eetchen.github.io/">Tao Chen</a>. My current research interests include Computer Vision, Deep Learning, Model Compression and Model Design.
-  <!-- <br><br> -->
-</p>
-
-
-<h2>Publications <small>
-    [<a href="https://scholar.google.com/citations?user=fnYKT-gAAAAJ&hl=en"><img src="resource/google_scholar.png" width="140px" style="margin-bottom:-7px" alt=''></a>]
-    [<a href="https://www.semanticscholar.org/author/Pengtao-Chen/2035588905"><img src="resource/semantic_scholar.png" width="140px" style="margin-bottom:-8px" alt=''></a>]
-    [<a href="https://dblp.uni-trier.de/pid/285/5212.html"><img src="resource/dblp.png" width="120px" style="margin-bottom:-15px" alt=''></a>]
-	[<a href="https://www.aminer.org/profile/62b48e3f95bd360d57a5846b"><img src="resource/Aminer.png" width="80px" style="margin-bottom:-10px" alt=''></a>]</small>
-</h2>
-<br>
-
-<p class="author-pub-normal"> (# Equal Contribution; * Corresponding Author.) </p>
-
-<h3 align="center">2022</h3>
-
-<!-- TIFS 2022 TSGN -->
-<div class="pubs">
-    <div class="pub-img-box">
-        <img class="pub-img" src="papers\TIFS\TIFS2022-TSGN\TIFS2022-TSGN.png" width="200px" height="160px"/>
-    </div>
-    <div class="pub-text-box"><div class="pub-text">
-        <p class="title-small">TSGN: Transaction Subgraph Networks Assisting Phishing Detection in Ethereum.</p>
-        <p class="author-pub-normal">Jinhuan Wang, <b>Pengtao Chen</b>, Xinyao Xu, Jiajing Wu, Meng Shen, Qi Xuan<sup>*</sup>, Xiaoniu Yang.</p>
-        <i class="author-pub-normal"><b>Under review</b>, 2022</i> <br><br>
-        <i class="abstext">
-            <b>(Phishing Identification)</b>  By introducing TSGN into multi-edge transaction networks, the proposed multi-TSGN model can reduce the time complexity of large-scale network modeling, retain real-time transaction flow information and capture important topological patterns of phishing scams.
-            <!-- <br>
-            <b>Keywords:</b> Separated domain generalization; Semantic aggregation and calibration; Privacy protection. -->
-        </i>
-        <br>
-        <br>
-		<!-- [<a href="papers/TNSE/TNSE2021-SSGN/TNSE2021-Sampling Subgraph Network WithApplication to Graph Classification-Chen et al.pdf"><img src="resource/pdf.gif" width="15px" style="margin-bottom:-2.5px" alt=''><span class="papertext"> PDF</span></a>] -->
-        [<a href="https://arxiv.org/abs/2208.12938"><img src="resource/arxiv.gif" width="17px" style="margin-bottom:-3.3px" alt=''><span class="papertext"> Preprint</span></a>]
-        <!-- [<a href="https://ieeexplore.ieee.org/abstract/document/9547804"><img src="resource/IEEE.png" width="15px" style="margin-bottom:-2.5px" alt=''><span class="papertext"> IEEE Link</span></a>] -->
-		<!-- [<a href="https://github.com/Peyton-Chen/S2GNs-master"><img src="resource/github_logo.png" width="17px" style="margin-bottom:-3px" alt=''><span class="papertext"> Code</span></a>] -->
-    </div></div>
-</div>
-
-
-<h3 align="center">2021</h3>
-
-<!-- TNSE 2021 SSGN -->
-<div class="pubs">
-    <div class="pub-img-box">
-        <img class="pub-img" src="papers/TNSE/TNSE2021-SSGN/TNSE2021-SSGN.png" width="200px" height="80px"/>
-    </div>
-    <div class="pub-text-box"><div class="pub-text">
-        <p class="title-small">Sampling Subgraph Network with Application to Graph Classification.</p>
-        <p class="author-pub-normal">Jinhuan Wang, <b>Pengtao Chen</b>, Bin Ma, Jiajun zhou, Zhongyuan Ruan, Guanrong Chen, Qi Xuan<sup>*</sup>.</p>
-        <i class="author-pub-normal">IEEE Transactions on Network Science and Engineering(<b>TNSE</b>), 2021</i> <br><br>
-        <i class="abstext">
-            <b>(Data Augmentation)</b> SGN model lacks diversity and is of quite high time complexity, making it difficult to widely apply in practice. In this paper, we introduce sampling strategies into SGN, and design a novel sampling subgraph network model, which is scale-controllable and of higher diversity.
-            <!-- <br>
-            <b>Keywords:</b> Separated domain generalization; Semantic aggregation and calibration; Privacy protection. -->
-        </i>
-        <br>
-        <br>
-		[<a href="papers/TNSE/TNSE2021-SSGN/TNSE2021-Sampling Subgraph Network WithApplication to Graph Classification-Chen et al.pdf"><img src="resource/pdf.gif" width="15px" style="margin-bottom:-2.5px" alt=''><span class="papertext"> PDF</span></a>]
-        [<a href="https://arxiv.org/abs/2102.05272"><img src="resource/arxiv.gif" width="17px" style="margin-bottom:-3.3px" alt=''><span class="papertext"> Preprint</span></a>]
-        [<a href="https://ieeexplore.ieee.org/abstract/document/9547804"><img src="resource/IEEE.png" width="15px" style="margin-bottom:-2.5px" alt=''><span class="papertext"> IEEE Link</span></a>]
-		[<a href="https://github.com/Peyton-Chen/S2GNs-master"><img src="resource/github_logo.png" width="17px" style="margin-bottom:-3px" alt=''><span class="papertext"> Code</span></a>]
-    </div></div>
-</div>
-
-
-<!-- chapter 2021 Graph_data_mining -->
-<div class="pubs">
-    <div class="pub-img-box">
-        <img class="pub-img" src="papers/Chapter/Graph-Data-Mining/Chapter2021-GDM.png" width="200px" height="100px"/>
-    </div>
-    <div class="pub-text-box"><div class="pub-text">
-        <p class="title-small">Broad Learning Based on Subgraph Networks for Graph Classification.</p>
-        <p class="author-pub-normal">Jinhuan Wang, <b>Pengtao Chen</b>, Yunyi Xie, Yalu Shan, Qi Xuan<sup>*</sup>, Guanrong Chen.</p>
-        <i class="author-pub-normal"> Graph Data Mining Algorithm, Security and Application, 2021 </i> <br><br>
-        <i class="abstext">
-            <b>(Data Augmentation)</b> A broad learning system (BLS) is introduced into graph classification, which fully utilizes the information provided by the S2GNs of different sampling strategies and thus can capture various aspects of the network structure more efficiently. 
-            <!-- <br>
-            <b>Keywords:</b> Separated domain generalization; Semantic aggregation and calibration; Privacy protection. -->
-        </i>
-        <br>
-        <br>
-		[<a href="papers/Chapter/Graph-Data-Mining/Graph-Data-Mining2021_Broad Learning Based on Subgraph Networks for Graph Classification_Chen et al.pdf"><img src="resource/pdf.gif" width="15px" style="margin-bottom:-2.5px" alt=''><span class="papertext"> PDF</span></a>]
-        [<a href="https://link.springer.com/chapter/10.1007/978-981-16-2609-8_3"><img src="resource/springer.png" width="15px" style="margin-bottom:-3px" alt=''><span class="papertext"> Springer Link</span></a>]
-    </div></div>
-</div>
-
-
-<!-- BlockSys 2021 TSGN -->
-<div class="pubs">
-    <div class="pub-img-box">
-        <img class="pub-img" src="papers/BlockSys/BlockSys2021-TSGN/BlockSys2021-TSGN.png" width="200px" height="80px"/>
-    </div>
-    <div class="pub-text-box"><div class="pub-text">
-        <p class="title-small">TSGN: Transaction Subgraph Networks for Identifying Ethereum Phishing Accounts.</p>
-        <p class="author-pub-normal">Jinhuan Wang, <b>Pengtao Chen</b>, Shanqing Yu, Qi Xuan<sup>*</sup>.</p>
-        <i class="author-pub-normal"> International Conference on Blockchain and Trustworthy Systems(<b>BlockSys</b>), 2021</i> <br><br>
-        <i class="abstext">
-            <b>(Phishing Identification)</b> We build transaction networks (TN) to analyze illegal phenomenons such as phishing scams in blockchain from a network perspective. In this paper, we propose a Transaction SubGraph Network (TSGN) based classification model to identify phishing accounts in Ethereum.
-            <!-- <br>
-            <b>Keywords:</b> Separated domain generalization; Semantic aggregation and calibration; Privacy protection. -->
-        </i>
-        <br>
-        <br>
-		[<a href="papers/BlockSys/BlockSys2021-TSGN/BlockSys2021-TSGN：Transaction Subgraph Networks for Identifying Ethereum Phishing Accounts-Chen et al.pdf"><img src="resource/pdf.gif" width="15px" style="margin-bottom:-2.5px" alt=''><span class="papertext"> PDF</span></a>] 
-        [<a href="https://arxiv.org/abs/2104.08767"><img src="resource/arxiv.gif" width="17px" style="margin-bottom:-3.3px" alt=''><span class="papertext"> Preprint</span></a>] 
-        [<a href="https://link.springer.com/chapter/10.1007/978-981-16-7993-3_15"><img src="resource/springer.png" width="15px" style="margin-bottom:-3px" alt=''><span class="papertext"> Springer Link</span></a>]
-    </div></div>
-</div>
-
-
-<h2>Education</h2>
-<table width="95%" align="center" border="0" cellpadding="0">
-<tbody>
-
-  <tr>
-	<td style="padding:10px;width:10%;vertical-align:middle; text-align:middle">
-	  <img src="resource/fdu_logo.png" alt="inspur" style="margin-bottom:13px" width="70">
-	</td>
-	<td width="75%" valign="center">
-	  <p>
-		<i>School of Information Science and Techonlogy, <b>Fudan University</b></i>, Shanghai, P.R. China <br>
-		Ph. D., from Sep. 2022 (expected) <br>
-		Majored in Electronic Science and Technology.  <br>
-	  </p>
-	</td>
-  </tr>
-  
-  <br>
-  
-  <tr>
-	<td style="padding:10px;width:10%;vertical-align:middle; text-align:middle">
-	  <img src="resource/zjut.jpg" alt="inspur" style="margin-bottom:13px" width="70">
-	</td>
-	<td width="75%" valign="center">
-	  <p>
-		<i>Jianxing Honors College, <b>Zhejiang University of Technology</b></i>, Hangzhou, P.R. China <br>
-		B. Eng., from Sep. 2018 to June 2022 <br>
-		Majored in Automation. <strong>Rank:</strong> 1/134 (less than 1%); <strong>GPA:</strong> 4.2/5.0.
-	  </p>
-	</td>
-  </tr>
-</tbody>
-</table>
-
-
-<h2>Selected Honors and Awards</h2>
-<p>
-  <br style="line-height: 8px">
-
-  <ul>
-	<li>May 2022, Outstanding Graduate of Zhejiang Province. </li>
-	<li>Dec. 2021, Zhejiang Provincial Government Scholarship.</li>
-	<li>Dec. 2020, <strong>National Scholarship</strong><i>(The ONLY student in School of Information Engineering)</i>.</li>
-	<li>Oct. 2020, The 12th National College Student Mathematics Competition, <strong>Second
-		Prize</strong>.</li>
-	<li>Oct. 2019, The 11th National College Student Mathematics Competition, <strong>First
-		Prize</strong>.</li>
+<nav id="navbar">
+  <a class="nav-brand" href="#profile">Pengtao Chen</a>
+  <ul class="nav-links">
+    <li><a href="#biography">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#internship">Internship</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#collaborators">Friends</a></li>
   </ul>
-  
-</p>
- 
- 
-<!-- <h2>Professional Services</h2> -->
-<!-- <span>Conference reviewer: CVPR 2021 Workshop on Causality in Vision.</span> -->
-<!-- <br><br> -->
-<!-- <span>Help to review for conferences: ICML 2021; KDD 2021; ICCV 2021; CIKM 2021; NeurIPS 2021; AAAI 2021, 2022; CVPR 2021, 2022.</span> -->
-<!-- <br><br> -->
-<!-- <span>Help to review for journals: TNNLS 2022.</span> -->
+</nav>
 
-<div id="footer">
-    <div id="footer-text"></div>
+<div id="page-wrapper">
+
+  <div id="profile">
+    <div class="profile-photo">
+      <img class="photo" src="resource/pengtaochen_photo_aigc.png" alt="Pengtao Chen">
+    </div>
+
+    <div class="profile-text">
+      <h1>Pengtao Chen <img class="chinese-name" src="resource/pengtaochen_chinese_name.png" alt="陈鹏涛"></h1>
+      <p class="profile-subtitle">Ph.D. Student</p>
+      <p>Embedded Deep Learning and Visual Analysis Lab</p>
+      <p>College of Future Information Technology, <strong>Fudan University (FDU)</strong></p>
+      <p style="margin-top:10px"><strong>Address:</strong> 2005 Songhu Rd, Yangpu, Shanghai, China, 200438</p>
+      <p><strong>E-mail:</strong> Pengt.Chen@gmail.com</p>
+
+      <div id="stats-bar">
+        <a class="stat-badge scholar" id="scholar-badge"
+           href="https://scholar.google.com/citations?user=fnYKT-gAAAAJ&hl=en"
+           target="_blank" rel="noopener" title="Google Scholar">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+          </svg>
+          Citations:&nbsp;<span class="stat-val loading" id="scholar-count"></span>
+        </a>
+
+        <span class="stat-badge github" id="github-badge" title="Total GitHub Stars">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/>
+          </svg>
+          GitHub Stars:&nbsp;<span class="stat-val loading" id="github-stars"></span>
+        </span>
+
+        <button class="stat-refresh" id="stats-refresh" title="Refresh stats" aria-label="Refresh live stats">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section id="biography">
+    <h2>
+      Biography
+      <span class="social-links">
+        [<a href="https://github.com/Peyton-Chen"><img src="resource/github.png" width="76px" alt="GitHub"></a>]
+      </span>
+    </h2>
+    <p id="bio-text">
+      I am currently a fourth-year Ph.D. student at the College of Future Information Technology,
+      <a href="https://www.fudan.edu.cn/">Fudan University</a>, Shanghai, China,
+      supervised by Prof. <a href="https://eetchen.github.io/">Tao Chen</a>.
+      I received my B.S. degree from the School of Information Engineering,
+      <a href="https://www.zjut.edu.cn/">Zhejiang University of Technology</a>, Hangzhou, China, in 2022,
+      advised by Prof. <a href="https://scholar.google.com/citations?user=smi7bpoAAAAJ&hl=zh-CN">Qi Xuan</a>.
+      My research interests lie in Diffusion Model, Model Compression, and Efficient Model Design.
+      I am a research intern at the StepFun, working closely with
+      <a href="https://www.skicyyu.org/">Gang Yu</a> and
+      <a href="https://scholar.google.com/citations?user=tgDc0fsAAAAJ&hl=en">Xianfang Zeng</a>.
+    </p>
+  </section>
+
+  <section id="publications">
+    <h2>
+      Publications
+      <span class="social-links">
+        [<a href="https://scholar.google.com/citations?user=fnYKT-gAAAAJ&hl=en"><img src="resource/google_scholar.png" width="130px" alt="Google Scholar"></a>]
+        [<a href="https://www.semanticscholar.org/author/Pengtao-Chen/2035588905"><img src="resource/semantic_scholar.png" width="130px" alt="Semantic Scholar"></a>]
+        [<a href="https://dblp.uni-trier.de/pid/285/5212.html"><img src="resource/dblp.png" width="110px" alt="DBLP"></a>]
+        [<a href="https://www.aminer.org/profile/62b48e3f95bd360d57a5846b"><img src="resource/Aminer.png" width="72px" alt="AMiner"></a>]
+      </span>
+    </h2>
+    <p class="note-equal">(# Equal Contribution; * Corresponding Author.)</p>
+
+    <h3 class="year-label">2026</h3>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/CVPR2026/ReasonEdit.png" alt="ReasonEdit">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">ReasonEdit: Towards Reasoning-Enhanced Image Editing Models.</span>
+        <p class="pub-authors">Fukun Yin, Shiyu Liu, Yucheng Han, Zhibo Wang, Peng Xing, Rui Wang, Wei Cheng, Yingming Wang, Aojie Li, Zixin Yin, <b>Pengtao Chen</b>, Xiangyu Zhang, Daxin Jiang<sup>*</sup>, Xianfang Zeng<sup>*</sup>, Gang Yu<sup>*</sup></p>
+        <p class="pub-venue">Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), 2026</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/pdf/2511.22625"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://github.com/stepfun-ai/Step1X-Edit" data-gh-repo="stepfun-ai/Step1X-Edit"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="pub-link" href="https://step1x-edit.github.io/"><img src="resource/project.png" alt="">Project</a>
+          <a class="pub-link" href="https://huggingface.co/stepfun-ai/Step1X-Edit-v1p2"><img src="resource/huggingface.png" alt="">HuggingFace</a>
+          <a class="gh-star-chip" href="https://github.com/stepfun-ai/Step1X-Edit" target="_blank" rel="noopener" data-chip-repo="stepfun-ai/Step1X-Edit" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/ICLR2026/RegionE.png" alt="RegionE">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">RegionE: Adaptive Region-Aware Generation for Efficient Image Editing.</span>
+        <p class="pub-authors"><b>Pengtao Chen</b>, Xianfang Zeng, Maosen Zhao, Mingzhu Shen, Peng Ye, Bangyin Xiang, Zhibo Wang, Wei Cheng, Gang Yu, Tao Chen<sup>*</sup></p>
+        <p class="pub-venue">International Conference on Learning Representations (<strong>ICLR</strong>), 2026</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://openreview.net/pdf?id=I6j5fLdH80"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2510.25590"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://github.com/Peyton-Chen/RegionE" data-gh-repo="Peyton-Chen/RegionE"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="pub-link" href="https://peyton-chen.github.io/RegionE/"><img src="resource/project.png" alt="">Project</a>
+          <a class="pub-link" href="https://pypi.org/project/RegionE/"><img src="resource/pypi.png" alt="">PyPI</a>
+          <a class="gh-star-chip" href="https://github.com/Peyton-Chen/RegionE" target="_blank" rel="noopener" data-chip-repo="Peyton-Chen/RegionE" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/AAAI2026/Sparse-vDiT.png" alt="Sparse-vDiT">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">Sparse-vDiT: Unleashing the Power of Sparse Attention to Accelerate Video Diffusion Transformers.</span>
+        <p class="pub-authors"><b>Pengtao Chen</b>, Xianfang Zeng, Maosen Zhao, Peng Ye, Mingzhu Shen, Wei Cheng, Gang Yu, Tao Chen<sup>*</sup></p>
+        <p class="pub-venue">AAAI Conference on Artificial Intelligence (<strong>AAAI</strong>), 2026</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/abs/2506.03065"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://github.com/Peyton-Chen/Sparse-vDiT" data-gh-repo="Peyton-Chen/Sparse-vDiT"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="gh-star-chip" href="https://github.com/Peyton-Chen/Sparse-vDiT" target="_blank" rel="noopener" data-chip-repo="Peyton-Chen/Sparse-vDiT" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="year-label">2025</h3>
+
+    <!-- <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/TMM2025/DMC-Diff.png" alt="DMC-Diff">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">DMC-Diff: Differentiable Model Composition for Fast Diffusion Model Inference.</span>
+        <p class="pub-authors"><b>Pengtao Chen</b>, Mingzhu Shen, Peng Ye, Yiren Zhao, Christos-Savvas Bouganis, Tao Chen<sup>*</sup></p>
+        <p class="pub-venue">IEEE Transactions on Multimedia (<strong>TMM</strong>), 2025</p>
+        <div class="pub-links">
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/ICCV2025/DiTFastAttnV2.png" alt="DiTFastAttnV2">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">DiTFastAttnV2: Head-wise Attention Compression for Multi-Modality Diffusion Transformers.</span>
+        <p class="pub-authors">Hanling Zhang<sup>#</sup>, Rundong Su<sup>#</sup>, Zhihang Yuan, <b>Pengtao Chen</b>, Mingzhu Shen, Yibo Fan, Shengen Yan, Guohao Dai, Yu Wang<sup>*</sup></p>
+        <p class="pub-venue">International Conference on Computer Vision (<strong>ICCV</strong>), 2025</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://openaccess.thecvf.com/content/ICCV2025/papers/Zhang_DiTFastAttnV2_Head-wise_Attention_Compression_for_Multi-Modality_Diffusion_Transformers_ICCV_2025_paper.pdf"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2503.22796"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://github.com/thu-nics/DiTFastAttnV2" data-gh-repo="thu-nics/DiTFastAttnV2"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="gh-star-chip" href="https://github.com/thu-nics/DiTFastAttnV2" target="_blank" rel="noopener" data-chip-repo="thu-nics/DiTFastAttnV2" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/NeurIPS2025/Favor.png" alt="FAVOR-bench">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">Favor-bench: A Comprehensive Benchmark for Fine-Grained Video Motion Understanding.</span>
+        <p class="pub-authors">Chongjun Tu<sup>#</sup>, Lin Zhang<sup>#</sup>, <b>Pengtao Chen<sup>#</sup></b>, Peng Ye, Xianfang Zeng, Wei Cheng, Gang Yu, Tao Chen<sup>*</sup></p>
+        <p class="pub-venue">Conference on Neural Information Processing Systems (<strong>NeurIPS</strong>), 2025</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://openreview.net/pdf?id=DCxsuBXHvx"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://arxiv.org/pdf/2503.14935"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://github.com/FAVOR-Bench/FAVOR-Bench" data-gh-repo="FAVOR-Bench/FAVOR-Bench"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="pub-link" href="https://favor-bench.github.io/"><img src="resource/project.png" alt="">Project</a>
+          <a class="pub-link" href="https://huggingface.co/datasets/zl2048/FAVOR"><img src="resource/huggingface.png" alt="">HuggingFace</a>
+          <a class="gh-star-chip" href="https://github.com/FAVOR-Bench/FAVOR-Bench" target="_blank" rel="noopener" data-chip-repo="FAVOR-Bench/FAVOR-Bench" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/CVPR2025/FPQ.png" alt="FPQ">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">Pioneering 4-Bit FP Quantization for Diffusion Models: Mixup-Sign Quantization and Timestep-Aware Fine-Tuning.</span>
+        <p class="pub-authors">Maosen Zhao<sup>#</sup>, <b>Pengtao Chen<sup>#</sup></b>, Chong Yu, Yan Wen, Xudong Tan, Tao Chen<sup>*</sup></p>
+        <p class="pub-venue">Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), 2025</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://openaccess.thecvf.com/content/CVPR2025/papers/Zhao_Pioneering_4-Bit_FP_Quantization_for_Diffusion_Models_Mixup-Sign_Quantization_and_CVPR_2025_paper.pdf"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2505.21591"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/TIFS/TIFS2022-TSGN/TIFS2022-TSGN.png" alt="TSGN">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">TSGN: Transaction Subgraph Networks Assisting Phishing Detection in Ethereum.</span>
+        <p class="pub-authors">Jinhuan Wang, <b>Pengtao Chen</b>, Xinyao Xu, Jiajing Wu, Meng Shen, Qi Xuan<sup>*</sup>, Xiaoniu Yang</p>
+        <p class="pub-venue">IEEE Transactions on Dependable and Secure Computing (<strong>TDSC</strong>), 2025</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/abs/2208.12938"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10938293"><img src="resource/IEEE.png" alt="">IEEE</a>
+          <a class="pub-link" href="https://github.com/GalateaWang/TSGN-master" data-gh-repo="GalateaWang/TSGN-master"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="gh-star-chip" href="https://github.com/GalateaWang/TSGN-master" target="_blank" rel="noopener" data-chip-repo="GalateaWang/TSGN-master" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="year-label">2024</h3>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/IJCV2024/Delta-DiT.png" alt="Delta-DiT">
+        <span class="ccf-tag ccf-a">CCF-A</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">Δ-DiT: A Training-Free Acceleration Method Tailored for Diffusion Transformers.</span>
+        <p class="pub-authors"><b>Pengtao Chen<sup>#</sup></b>, Mingzhu Shen<sup>#</sup>, Peng Ye, Jianjian Cao, Chongjun Tu, Christos-Savvas Bouganis, Yiren Zhao, Tao Chen<sup>*</sup></p>
+        <p class="pub-venue">International Journal of Computer Vision (<strong>IJCV</strong>), Minor Revision, 2024</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/pdf/2406.01125"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/NeurIPSW2024/MD-DiT.png" alt="MD-DiT">
+        <span class="ccf-tag ei">EI</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">MD-DiT: Step-aware Mixture-of-Depths for Efficient Diffusion Transformers.</span>
+        <p class="pub-authors">Mingzhu Shen<sup>#</sup>, <b>Pengtao Chen<sup>#</sup></b>, Peng Ye, Guoxuan Xia, Tao Chen, Christos-Savvas Bouganis, Yiren Zhao<sup>*</sup></p>
+        <p class="pub-venue">NeurIPS Workshop, 2024</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://openreview.net/pdf?id=1jWhiakK7N"><img src="resource/pdf.gif" alt="">PDF</a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="year-label">2021</h3>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/TNSE/TNSE2021-SSGN/TNSE2021-SSGN.png" alt="SSGN">
+        <span class="ccf-tag cas-2">CAS-2</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">Sampling Subgraph Network with Application to Graph Classification.</span>
+        <p class="pub-authors">Jinhuan Wang, <b>Pengtao Chen</b>, Bin Ma, Jiajun Zhou, Zhongyuan Ruan, Guanrong Chen, Qi Xuan<sup>*</sup></p>
+        <p class="pub-venue">IEEE Transactions on Network Science and Engineering (<strong>TNSE</strong>), 2021</p>
+        <div class="pub-links">
+          <a class="pub-link" href="papers/TNSE/TNSE2021-SSGN/TNSE2021-Sampling Subgraph Network WithApplication to Graph Classification-Chen et al.pdf"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2102.05272"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9547804"><img src="resource/IEEE.png" alt="">IEEE</a>
+          <a class="pub-link" href="https://github.com/Peyton-Chen/S2GNs-master" data-gh-repo="Peyton-Chen/S2GNs-master"><img src="resource/github_logo.png" alt="">Code</a>
+          <a class="gh-star-chip" href="https://github.com/Peyton-Chen/S2GNs-master" target="_blank" rel="noopener" data-chip-repo="Peyton-Chen/S2GNs-master" title="GitHub Stars">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+            <span class="chip-val loading"></span>
+          </a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/Chapter/Graph-Data-Mining/Chapter2021-GDM.png" alt="Chapter GDM">
+        <span class="ccf-tag book">Book</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">Broad Learning Based on Subgraph Networks for Graph Classification.</span>
+        <p class="pub-authors">Jinhuan Wang, <b>Pengtao Chen</b>, Yunyi Xie, Yalu Shan, Qi Xuan<sup>*</sup>, Guanrong Chen</p>
+        <p class="pub-venue">Graph Data Mining Algorithm, Security and Application, 2021</p>
+        <div class="pub-links">
+          <a class="pub-link" href="papers/Chapter/Graph-Data-Mining/Graph-Data-Mining2021_Broad Learning Based on Subgraph Networks for Graph Classification_Chen et al.pdf"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-981-16-2609-8_3"><img src="resource/springer.png" alt="">Springer</a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-img-wrap">
+        <img src="papers/BlockSys/BlockSys2021-TSGN/BlockSys2021-TSGN.png" alt="BlockSys TSGN">
+        <span class="ccf-tag ccf-c">CCF-C</span>
+      </div>
+      <div class="pub-info">
+        <span class="pub-title">TSGN: Transaction Subgraph Networks for Identifying Ethereum Phishing Accounts.</span>
+        <p class="pub-authors">Jinhuan Wang, <b>Pengtao Chen</b>, Shanqing Yu, Qi Xuan<sup>*</sup></p>
+        <p class="pub-venue">International Conference on Blockchain and Trustworthy Systems (<strong>BlockSys</strong>), 2021</p>
+        <div class="pub-links">
+          <a class="pub-link" href="papers/BlockSys/BlockSys2021-TSGN/BlockSys2021-TSGN：Transaction Subgraph Networks for Identifying Ethereum Phishing Accounts-Chen et al.pdf"><img src="resource/pdf.gif" alt="">PDF</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2104.08767"><img src="resource/arxiv.gif" alt="">Preprint</a>
+          <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-981-16-7993-3_15"><img src="resource/springer.png" alt="">Springer</a>
+          <span class="cite-chip" title="Google Scholar Citations">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>
+            <span class="chip-val loading"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="internship">
+    <h2>Internship</h2>
+    <div class="entry-list">
+      <div class="entry-card">
+        <img src="resource/stepfun.svg" alt="StepFun">
+        <div class="entry-text">
+          <p><em><strong>StepFun (阶跃星辰)</strong></em>, Shanghai, P.R. China</p>
+          <p>Foundation Model Algorithm Intern (AIGC), from Oct. 2024 to Mar. 2026</p>
+          <p style="color:var(--muted);font-size:13.5px">Advisor: <a href="https://www.skicyyu.org/" target="_blank" rel="noopener">Gang Yu</a> and <a href="https://scholar.google.com/citations?user=tgDc0fsAAAAJ&hl=en" target="_blank" rel="noopener">Xianfang Zeng</a>.</p>
+          <p style="color:var(--muted);font-size:13.5px">Focused on instruction-based image editing, video generation and efficient model inference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entry-list">
+      <div class="entry-card">
+        <img src="resource/fdu_logo.png" alt="Fudan University">
+        <div class="entry-text">
+          <p><em>College of Future Information Technology, <strong>Fudan University</strong></em>, Shanghai, P.R. China</p>
+          <p>Ph.D., from Sep. 2022 to June 2027 (expected)</p>
+          <p style="color:var(--muted);font-size:13.5px">Majored in Electronic Science and Technology. <strong>Rank:</strong> 4/25; <strong>GPA:</strong> 3.6/4.0.</p>
+        </div>
+      </div>
+      <div class="entry-card">
+        <img src="resource/zjut.jpg" alt="Zhejiang University of Technology">
+        <div class="entry-text">
+          <p><em>Jianxing Honors College, <strong>Zhejiang University of Technology</strong></em>, Hangzhou, P.R. China</p>
+          <p>B.Eng., from Sep. 2018 to June 2022</p>
+          <p style="color:var(--muted);font-size:13.5px">Majored in Automation. <strong>Rank:</strong> 1/134 (less than 1%); <strong>GPA:</strong> 4.2/5.0.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2>Selected Honors &amp; Awards</h2>
+    <ul class="awards-list">
+      <li>Nov. 2024 — Fudan University Outstanding Ph.D. Candidate <strong>First-Class Scholarship</strong>.</li>
+      <li>Oct. 2023 — Huawei Ascend AI Innovation Competition (ShengSi Algorithm Innovation Track), <strong>Gold Award</strong>.</li>
+      <li>Oct. 2023 — The 1st World Science Intelligence Competition (Atmospheric Science Track), <strong>Rank: 9/2071</strong>.</li>
+      <li>Feb. 2023 — PCIC 2022 Causal Inference and Recommendation, <strong>Rank: 4/161</strong>.</li>
+      <li>May 2022 — Outstanding Graduate of Zhejiang Province.</li>
+      <li>Dec. 2021 — Zhejiang Provincial Government Scholarship.</li>
+      <li>Dec. 2020 — <strong>National Scholarship</strong> <em>(The ONLY student in School of Information Engineering)</em>.</li>
+      <li>Oct. 2020 — The 12th National College Student Mathematics Competition, <strong>Second Prize</strong>.</li>
+      <li>Jul 2019 &amp; Sep 2020 — Zhejiang Provincial University Student Mathematics Competition, <strong>First Prize × 2</strong>.</li>
+      <li>Oct. 2019 — The 11th National College Student Mathematics Competition, <strong>First Prize</strong>.</li>
+      <li>Oct. 2017 — National High School Mathematics League and Chinese Mathematical Olympiad, <strong>First Prize</strong> (Zhejiang Province).</li>
+    </ul>
+  </section>
+
+  <section id="service">
+    <h2>Academic Service</h2>
+    <div class="service-row"><strong>Conference Reviewer:</strong> NeurIPS (2024, 2025), ICLR (2025, 2026), ICML (2025, 2026), CVPR (2025, 2026), ICCV (2025), AAAI (2026), AISTATS (2024).</div>
+    <div class="service-row"><strong>Journal Reviewer:</strong> IJCV.</div>
+  </section>
+
+  <section id="collaborators">
+    <h2>Collaborators and Friends</h2>
+    <div class="collab-grid">
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en" target="_blank" rel="noopener">Peng Ye</a> <span class="collab-aff">(CUHK, Shanghai AI Lab)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=o7vrw6IAAAAJ&hl=en" target="_blank" rel="noopener">Mingzhu Shen</a> <span class="collab-aff">(IC)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=0V-5VnkAAAAJ&hl=en" target="_blank" rel="noopener">Chongjun Tu</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=S25Lr3oAAAAJ&hl=en" target="_blank" rel="noopener">Jianjian Cao</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=TscGUtAAAAAJ&hl=en" target="_blank" rel="noopener">Lin Zhang</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://jiakangyuan.github.io/" target="_blank" rel="noopener">Jiakang Yuan</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=-lZSGukAAAAJ&hl=en" target="_blank" rel="noopener">Yaoxin Yang</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=6wfIBLgAAAAJ&hl=en" target="_blank" rel="noopener">Xudong Tan</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=EKto99gAAAAJ" target="_blank" rel="noopener">Chenyu Huang</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=hTAiMuYAAAAJ" target="_blank" rel="noopener">Minglei Li</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=k5MQpaIAAAAJ" target="_blank" rel="noopener">Weihao Lin</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://wangjiongw.github.io/" target="_blank" rel="noopener">Jiong Wang</a> <span class="collab-aff">(FDU, Shanghai AI Lab)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://doby-xu.github.io/" target="_blank" rel="noopener">Hengyuan Xu</a> <span class="collab-aff">(FDU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://fukunyin.github.io/" target="_blank" rel="noopener">Fukun Yin</a> <span class="collab-aff">(StepFun)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://wchengad.github.io/" target="_blank" rel="noopener">Wei Cheng</a> <span class="collab-aff">(StepFun)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://tingxueronghua.github.io/" target="_blank" rel="noopener">Yucheng Han</a> <span class="collab-aff">(StepFun)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=PwKIzPAAAAAJ" target="_blank" rel="noopener">Zhibo Wang</a> <span class="collab-aff">(StepFun)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=nVR6p7cAAAAJ&hl=zh-CN" target="_blank" rel="noopener">Rui Wang</a> <span class="collab-aff">(StepFun)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=R_ZR2AsAAAAJ" target="_blank" rel="noopener">Xinyao Liao</a> <span class="collab-aff">(NTU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=6bdPeKcAAAAJ" target="_blank" rel="noopener">Zhoujie Fu</a> <span class="collab-aff">(NTU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=en&user=gfeep90AAAAJ" target="_blank" rel="noopener">Chong Yu</a> <span class="collab-aff">(Nvidia)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?user=O4UiVY4AAAAJ&hl=zh-CN" target="_blank" rel="noopener">Kun Chen</a> <span class="collab-aff">(Shanghai Meteorological Bureau)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://sophiesarceau.github.io/" target="_blank" rel="noopener">Xinzhe Zheng</a> <span class="collab-aff">(NUS)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://hanchengye.com/" target="_blank" rel="noopener">Hancheng Ye</a> <span class="collab-aff">(Duke)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://aoliao12138.github.io/" target="_blank" rel="noopener">Liao Wang</a> <span class="collab-aff">(ByteDance)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://kebii.github.io/" target="_blank" rel="noopener">Jiaxu Zhang</a> <span class="collab-aff">(ByteDance)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://jingyangxiang.github.io/" target="_blank" rel="noopener">Jingyang Xiang</a> <span class="collab-aff">(ByteDance)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=zh-CN&user=o1BycdIAAAAJ" target="_blank" rel="noopener">Jinhuan Wang</a> <span class="collab-aff">(ZJUT)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://junhao-zhu.github.io/" target="_blank" rel="noopener">Junhao Zhu</a> <span class="collab-aff">(ZJU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=zh-CN&user=u2Gi-yQAAAAJ" target="_blank" rel="noopener">Tian Qiu</a> <span class="collab-aff">(ZJU)</span></span>
+      <span class="collab-item"><a class="collab-link" href="https://scholar.google.com/citations?hl=zh-CN&user=0yreGNIAAAAJ" target="_blank" rel="noopener">Bohao Wang</a> <span class="collab-aff">(ZJU)</span></span>
+    </div>
+  </section>
+
+  <footer>Last updated on March 16, 2026.</footer>
 </div>
-</div>
 
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  });
+  const sections = document.querySelectorAll('section[id], div[id="profile"]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const id = entry.target.id;
+        const match = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
 
-Last updated on June 23, 2022. Webpage template borrows from <a href="https://junkunyuan.github.io/">Junkun Yuan</a>.<!--This page is still under construction.-->
+<!-- ══════════════ LIVE STATS SCRIPT (Fixed) ══════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ─── Config ─────────────────────────────────────────────
+   *
+   * Google Scholar citations:
+   *   Uses shields.io endpoint which scrapes Scholar on its own
+   *   servers — avoids CORS entirely and is very stable.
+   *   Format: https://img.shields.io/badge/dynamic/json?...
+   *   We actually use the raw shields.io endpoint for Scholar.
+   *
+   *   ⚠️  Replace SCHOLAR_USER_ID with yours from the Scholar URL:
+   *       https://scholar.google.com/citations?user=<SCHOLAR_USER_ID>
+   *
+   * GitHub Stars:
+   *   Primary:  Official GitHub REST API (no auth, 60 req/hr per IP).
+   *   Fallback: shields.io GitHub stars endpoint (parses shields badge
+   *             JSON) — different infrastructure, different rate limits.
+   *             Two independent sources = much higher reliability.
+   */
+  const SCHOLAR_USER_ID = 'fnYKT-gAAAAJ';
+
+  const ALL_CHIP_REPOS = [
+    'stepfun-ai/Step1X-Edit',
+    'Peyton-Chen/RegionE',
+    'Peyton-Chen/Sparse-vDiT',
+    'thu-nics/DiTFastAttnV2',
+    'FAVOR-Bench/FAVOR-Bench',
+    'GalateaWang/TSGN-master',
+    'Peyton-Chen/S2GNs-master',
+  ];
+
+  /* ─── Helpers ─────────────────────────────────────────── */
+  function formatNum(n) {
+    if (n == null) return '—';
+    if (n >= 1000) return (Math.ceil(n / 100) / 10).toFixed(1).replace(/\.0$/, '') + 'k';
+    return String(n);
+  }
+
+  function setVal(el, text, isError) {
+    if (!el) return;
+    el.classList.remove('loading');
+    el.textContent = text;
+    el.style.opacity = isError ? '0.5' : '';
+  }
+
+  function timeout(ms) {
+    return new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('timeout')), ms)
+    );
+  }
+
+  async function fetchWithTimeout(url, opts, ms) {
+    return Promise.race([fetch(url, opts), timeout(ms)]);
+  }
+
+  /* ─── GitHub Stars ────────────────────────────────────────
+   *
+   * Strategy A – GitHub REST API (fast, CORS-friendly, 60 req/hr unauthenticated)
+   * Strategy B – shields.io badge JSON endpoint (separate infra, separate limits)
+   *
+   * Both return stargazer_count / message. We try A first; on any failure
+   * (rate-limit 403, network error, timeout) we fall back to B.
+   * Returns null if both fail.
+   */
+  async function fetchStarsGitHub(repo) {
+    const url = `https://api.github.com/repos/${repo}`;
+    try {
+      const res = await fetchWithTimeout(url, {
+        headers: { Accept: 'application/vnd.github+json' }
+      }, 8000);
+      if (res.status === 403 || res.status === 429) throw new Error('rate-limited');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const n = data.stargazers_count;
+      if (typeof n === 'number') return n;
+      throw new Error('missing stargazers_count');
+    } catch (e) {
+      console.warn(`[stars] GitHub API failed for ${repo} (${e.message}), trying shields.io fallback`);
+      return null;
+    }
+  }
+
+  async function fetchStarsShields(repo) {
+    /* shields.io exposes a JSON endpoint for badge queries.
+     * The "github/stars" badge includes a "message" field with the star count
+     * as a human-readable string (e.g. "1.2k", "42").
+     * We parse that back to an integer.
+     */
+    const encoded = encodeURIComponent(repo);
+    const url = `https://img.shields.io/github/stars/${encoded}?style=flat&label=Stars`;
+    try {
+      /* shields.io returns the badge as SVG by default.
+       * With ?format=json it returns JSON:
+       *   { "schemaVersion":1, "label":"Stars", "message":"42", "color":"..." }
+       */
+      const jsonUrl = `https://img.shields.io/github/stars/${encoded}.json`;
+      const res = await fetchWithTimeout(jsonUrl, {}, 10000);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const msg = data.message || '';
+      /* Parse "1.2k" / "42" / "3.4k" */
+      if (msg.endsWith('k')) {
+        return Math.round(parseFloat(msg) * 1000);
+      }
+      const n = parseInt(msg.replace(/,/g, ''), 10);
+      if (!isNaN(n)) return n;
+      throw new Error(`unparseable message: ${msg}`);
+    } catch (e) {
+      console.warn(`[stars] shields.io fallback failed for ${repo}: ${e.message}`);
+      return null;
+    }
+  }
+
+  async function fetchStars(repo) {
+    const primary = await fetchStarsGitHub(repo);
+    if (primary !== null) return primary;
+    return fetchStarsShields(repo);
+  }
+
+  async function fetchAllStars(repos) {
+    const results = {};
+    await Promise.all(repos.map(async (repo) => {
+      results[repo] = await fetchStars(repo);
+    }));
+    return results;
+  }
+
+  /* ─── Google Scholar Citations ────────────────────────────
+   *
+   * Fetches the Google Scholar profile page via CORS proxy to extract:
+   *   1. Total citation count (from the stats sidebar)
+   *   2. Per-paper citation counts (from the publications table)
+   *
+   * The page is parsed using DOMParser, then each per-paper chip is
+   * matched to GS data by comparing normalized paper titles.
+   *
+   * Fallback: localStorage cache with 7-day TTL if all proxies fail.
+   */
+
+  function normalizeTitle(t) {
+    return t.toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+
+  function findGSMatch(pageTitle, gsPapers) {
+    const norm = normalizeTitle(pageTitle);
+    const prefix = norm.slice(0, 35);
+    if (!prefix) return null;
+    for (const [gsNorm, count] of Object.entries(gsPapers)) {
+      if (gsNorm.startsWith(prefix) || norm.startsWith(gsNorm.slice(0, 35))) {
+        return count;
+      }
+    }
+    return null;
+  }
+
+  async function fetchGoogleScholarPage() {
+    const gsUrl = `https://scholar.google.com/citations?user=${SCHOLAR_USER_ID}&hl=en&cstart=0&pagesize=100`;
+    const proxies = [
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(gsUrl)}`,
+      `https://corsproxy.io/?${encodeURIComponent(gsUrl)}`,
+    ];
+    for (const proxyUrl of proxies) {
+      try {
+        const res = await fetchWithTimeout(proxyUrl, {}, 15000);
+        if (!res.ok) continue;
+        const html = await res.text();
+
+        /* Total citations from the stats sidebar */
+        const totalMatch = html.match(/<td\s+class="gsc_rsb_std">([\d,]+)<\/td>/);
+        const total = totalMatch ? parseInt(totalMatch[1].replace(/,/g, ''), 10) : null;
+
+        /* Per-paper citations from the publications table */
+        const papers = {};
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        doc.querySelectorAll('.gsc_a_tr').forEach(row => {
+          const titleEl = row.querySelector('.gsc_a_at');
+          const citeEl = row.querySelector('.gsc_a_ac');
+          if (titleEl) {
+            const title = normalizeTitle(titleEl.textContent);
+            const count = citeEl ? (parseInt(citeEl.textContent.trim(), 10) || 0) : 0;
+            if (title) papers[title] = count;
+          }
+        });
+
+        if (total !== null || Object.keys(papers).length > 0) {
+          console.info(`[citations] Google Scholar: total=${total}, papers=${Object.keys(papers).length}`);
+          return { total, papers };
+        }
+      } catch (e) {
+        console.warn(`[citations] GS proxy failed: ${e.message}`);
+      }
+    }
+    return { total: null, papers: {} };
+  }
+
+  /* ─── Render ──────────────────────────────────────────── */
+  async function loadStats() {
+    const scholarEl  = document.getElementById('scholar-count');
+    const githubEl   = document.getElementById('github-stars');
+    const refreshBtn = document.getElementById('stats-refresh');
+
+    /* Reset chip loading states */
+    document.querySelectorAll('.gh-star-chip .chip-val').forEach(el => {
+      el.classList.add('loading');
+      el.textContent = '';
+    });
+    document.querySelectorAll('.cite-chip .chip-val').forEach(el => {
+      el.classList.add('loading');
+      el.textContent = '';
+    });
+
+    /* Run GS page fetch and GitHub stars fetch concurrently */
+    const [starMap, gsData] = await Promise.all([
+      fetchAllStars(ALL_CHIP_REPOS),
+      fetchGoogleScholarPage(),
+    ]);
+
+    /* Fill per-paper citation chips (matched by title) */
+    document.querySelectorAll('.cite-chip').forEach(chip => {
+      const card = chip.closest('.pub-card');
+      const titleEl = card ? card.querySelector('.pub-title') : null;
+      const valEl = chip.querySelector('.chip-val');
+      if (!titleEl) { setVal(valEl, '—', true); return; }
+      const count = findGSMatch(titleEl.textContent, gsData.papers);
+      setVal(valEl, count !== null ? String(count) : '—', count === null);
+    });
+
+    /* Fill per-repo star chips */
+    document.querySelectorAll('.gh-star-chip[data-chip-repo]').forEach(chip => {
+      const repo  = chip.dataset.chipRepo;
+      const valEl = chip.querySelector('.chip-val');
+      const count = starMap[repo];
+      setVal(valEl, count != null ? formatNum(count) : '—', count == null);
+    });
+
+    /* Total stars badge */
+    let total = 0, hasAny = false;
+    ALL_CHIP_REPOS.forEach(r => {
+      if (starMap[r] != null) { total += starMap[r]; hasAny = true; }
+    });
+    setVal(githubEl, hasAny ? formatNum(total) : '—', !hasAny);
+
+    /* Total citations badge (GS total → cache fallback) */
+    const CACHE_KEY = 'scholar_citations_cache';
+    const CACHE_TS_KEY = 'scholar_citations_ts';
+    const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+
+    let citations = gsData.total;
+    if (citations !== null) {
+      try {
+        localStorage.setItem(CACHE_KEY, String(citations));
+        localStorage.setItem(CACHE_TS_KEY, String(Date.now()));
+      } catch (_) {}
+    } else {
+      try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        const ts = parseInt(localStorage.getItem(CACHE_TS_KEY) || '0', 10);
+        if (cached && (Date.now() - ts) < MAX_AGE_MS) {
+          console.info('[citations] Using cached total from localStorage');
+          citations = parseInt(cached, 10);
+        }
+      } catch (_) {}
+    }
+    setVal(scholarEl, citations != null ? formatNum(citations) : '—', citations == null);
+
+    if (refreshBtn) {
+      refreshBtn.classList.remove('spinning');
+      refreshBtn.disabled = false;
+    }
+  }
+
+  /* ─── Refresh button ──────────────────────────────────── */
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('stats-refresh');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        btn.disabled = true;
+        btn.classList.add('spinning');
+        const scholarEl = document.getElementById('scholar-count');
+        const githubEl  = document.getElementById('github-stars');
+        [scholarEl, githubEl].forEach(el => {
+          if (el) { el.classList.add('loading'); el.textContent = ''; el.style.opacity = ''; }
+        });
+        document.querySelectorAll('.gh-star-chip .chip-val').forEach(el => {
+          el.classList.add('loading'); el.textContent = '';
+        });
+        document.querySelectorAll('.cite-chip .chip-val').forEach(el => {
+          el.classList.add('loading'); el.textContent = '';
+        });
+        loadStats();
+      });
+    }
+    loadStats();
+  });
+
+})();
+</script>
+
 </body>
+</html>
